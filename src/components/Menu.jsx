@@ -39,6 +39,9 @@ const Menu = ({ onClose }) => {
                 setBgImage('alumini.jpg'); // Change the route for Alumni
                 navigate('/alumni');
                 break;
+            case 'Placement-Connect':
+                setBgImage('Placement.png');
+                break;
             default:
                 setBgImage('');
                 break;
@@ -85,6 +88,11 @@ const Menu = ({ onClose }) => {
                     { name: 'Research', path: '/academics/research' },
                     { name: 'Online Courses', path: '/academics/online-courses' }
                 ];
+            case 'Placement-Connect':
+                return [
+                    {name: 'Apply', path: '/placement-connect/apply'},
+                    {name: 'Statistics', path: '/placement-connect/statistics'}
+                ];
             default:
                 return [];
         }
@@ -112,7 +120,7 @@ const Menu = ({ onClose }) => {
                 <div className="flex flex-grow">
                     {/* Main menu column */}
                     <ul className="w-1/2 flex flex-col items-start space-y-4 pr-10 border-r border-gray-700">
-                        {['Home', 'About Us', 'People', 'Campus Life', 'Academics', 'Alumni', 'Login'].map((item, index) => (
+                        {['Home', 'About Us', 'People', 'Campus Life', 'Academics', 'Alumni', 'Login', 'Placement-Connect'].map((item, index) => (
                             <li 
                                 key={index} 
                                 className={`py-4 flex items-center text-3xl relative tracking-wider transition-all duration-200 ${selectedItem === item ? 'text-yellow-400 font-bold' : 'text-gray-300 hover:text-white'}`} 
@@ -131,7 +139,7 @@ const Menu = ({ onClose }) => {
                     </ul>
 
                     {/* Submenu column */}
-                    {['About Us', 'People', 'Campus Life', 'Academics'].includes(selectedItem) && (
+                    {['About Us', 'People', 'Campus Life', 'Academics', 'Placement-Connect'].includes(selectedItem) && (
                         <ul className="w-1/2 flex flex-col items-start text-left space-y-2 pl-10">
                             {getSubMenuItems(selectedItem).map((subItem, subIndex) => (
                                 <li 
